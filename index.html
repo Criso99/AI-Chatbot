@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI-Chatbot</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="app">
+    <!-- Bottone toggle per dispositivi mobili -->
+    <button id="toggle-sidebar" class="mobile-only">☰ Chat salvate</button>
+
+    <!-- Sidebar / Dashboard -->
+    <aside id="sidebar">
+      <h2>Le tue chat</h2>
+      <ul id="chat-list"></ul>
+      <button id="new-chat">+ Nuova chat</button>
+    </aside>
+
+    <!-- Chat principale -->
+    <main id="chat">
+      <div id="chat-window"></div>
+      <form id="chat-form">
+        <input type="text" id="chat-input" placeholder="Scrivi un messaggio..." autocomplete="off" />
+        <button type="submit">Invia</button>
+      </form>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
