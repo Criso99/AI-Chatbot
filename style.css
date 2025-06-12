@@ -1,0 +1,168 @@
+/* === Reset e base === */
+* {
+  box-sizing: border-box;
+  margin: 0;a
+  padding: 0;
+}
+body {
+  font-family: "Segoe UI", sans-serif;
+  background-color: #d0f0e0;
+  height: 100vh;
+  display: flex;
+}
+#app {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+/* === Sidebar / Dashboard === */
+#sidebar {
+  width: 250px;
+  background-color: #ffffffdd;
+  border-right: 1px solid #ccc;
+  padding: 1rem;
+  overflow-y: auto;
+  transition: transform 0.3s ease;
+}
+#sidebar h2 {
+  margin-bottom: 1rem;
+}
+#chat-list {
+  list-style: none;
+  margin-bottom: 1rem;
+}
+#chat-list li {
+  padding: 0.5rem;
+  margin-bottom: 0.3rem;
+  background-color: #f0f0f0;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+#chat-list li:hover {
+  background-color: #e0e0e0;
+}
+
+/* Pulsante elimina chat */
+.delete-chat-btn {
+  background: transparent;
+  border: none;
+  color: #c33;
+  font-size: 1.1rem;
+  cursor: pointer;
+  padding: 0 0.3rem;
+  line-height: 1;
+  user-select: none;
+  transition: color 0.2s ease;
+}
+.delete-chat-btn:hover {
+  color: #900;
+}
+
+#new-chat {
+  width: 100%;
+  padding: 0.5rem;
+  background-color: #7ddfbe;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+#new-chat:hover {
+  background-color: #68cdaa;
+}
+
+/* === Chat area === */
+#chat {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  overflow: hidden;
+}
+
+/* Finestra dei messaggi */
+#chat-window {
+  flex: 1;
+  overflow-y: auto;
+  padding-bottom: 1rem;
+}
+.message {
+  max-width: 75%;
+  margin-bottom: 0.8rem;
+  padding: 0.7rem;
+  border-radius: 12px;
+  line-height: 1.4;
+  white-space: pre-wrap;
+}
+.user-message {
+  background-color: #c8f7c5;
+  align-self: flex-end;
+  text-align: right;
+}
+.ai-message {
+  background-color: #f0f0f0;
+  align-self: flex-start;
+  text-align: left;
+}
+
+/* Input messaggio */
+#chat-form {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+#chat-input {
+  flex: 1;
+  padding: 0.7rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+#chat-form button {
+  padding: 0.7rem 1rem;
+  border: none;
+  background-color: #7ddfbe;
+  color: white;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+}
+#chat-form button:hover {
+  background-color: #68cdaa;
+}
+
+/* === Mobile responsiveness === */
+.mobile-only {
+  display: none;
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  z-index: 10;
+  background-color: #7ddfbe;
+  border: none;
+  border-radius: 6px;
+  padding: 0.5rem 0.7rem;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+@media (max-width: 768px) {
+  #sidebar {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    transform: translateX(-100%);
+    z-index: 9;
+    box-shadow: 2px 0 6px rgba(0, 0, 0, 0.1);
+  }
+  #sidebar.open {
+    transform: translateX(0);
+  }
+  .mobile-only {
+    display: block;
+  }
+}
